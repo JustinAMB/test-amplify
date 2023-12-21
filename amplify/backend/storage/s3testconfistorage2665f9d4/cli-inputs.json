@@ -1,0 +1,15 @@
+{
+  "resourceName": "s3testconfistorage2665f9d4",
+  "bucketName": "test-confi-storage-2665f9d4",
+  "policyUUID": "eb9e9b62",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "READ",
+    "CREATE_AND_UPDATE"
+  ],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ]
+}

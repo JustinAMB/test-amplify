@@ -1,0 +1,91 @@
+# this is an auto generated file. This will be overwritten
+
+subscription OnCreateUser($filter: ModelSubscriptionUserFilterInput) {
+  onCreateUser(filter: $filter) {
+    id
+    Role {
+      id
+      name
+      createdAt
+      updatedAt
+      __typename
+    }
+    email
+    name
+    profileIUrlmage
+    createdAt
+    updatedAt
+    userRoleId
+    __typename
+  }
+}
+
+subscription OnUpdateUser($filter: ModelSubscriptionUserFilterInput) {
+  onUpdateUser(filter: $filter) {
+    id
+    Role {
+      id
+      name
+      createdAt
+      updatedAt
+      __typename
+    }
+    email
+    name
+    profileIUrlmage
+    createdAt
+    updatedAt
+    userRoleId
+    __typename
+  }
+}
+
+subscription OnDeleteUser($filter: ModelSubscriptionUserFilterInput) {
+  onDeleteUser(filter: $filter) {
+    id
+    Role {
+      id
+      name
+      createdAt
+      updatedAt
+      __typename
+    }
+    email
+    name
+    profileIUrlmage
+    createdAt
+    updatedAt
+    userRoleId
+    __typename
+  }
+}
+
+subscription OnCreateRole($filter: ModelSubscriptionRoleFilterInput) {
+  onCreateRole(filter: $filter) {
+    id
+    name
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+subscription OnUpdateRole($filter: ModelSubscriptionRoleFilterInput) {
+  onUpdateRole(filter: $filter) {
+    id
+    name
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+subscription OnDeleteRole($filter: ModelSubscriptionRoleFilterInput) {
+  onDeleteRole(filter: $filter) {
+    id
+    name
+    createdAt
+    updatedAt
+    __typename
+  }
+}
