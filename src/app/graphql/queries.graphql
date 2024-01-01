@@ -1,0 +1,70 @@
+# this is an auto generated file. This will be overwritten
+
+query GetUser($id: ID!) {
+  getUser(id: $id) {
+    id
+    Role {
+      id
+      name
+      createdAt
+      updatedAt
+      __typename
+    }
+    email
+    name
+    profileIUrlmage
+    createdAt
+    updatedAt
+    userRoleId
+    __typename
+  }
+}
+
+query ListUsers(
+  $filter: ModelUserFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      email
+      name
+      profileIUrlmage
+      createdAt
+      updatedAt
+      userRoleId
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+
+query GetRole($id: ID!) {
+  getRole(id: $id) {
+    id
+    name
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+export query ListRoles(
+  $filter: ModelRoleFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listRoles(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      createdAt
+      updatedAt
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}

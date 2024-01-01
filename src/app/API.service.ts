@@ -10,30 +10,21 @@ export interface SubscriptionResponse<T> {
 }
 
 export type __SubscriptionContainer = {
-  onCreateUser: OnCreateUserSubscription;
-  onUpdateUser: OnUpdateUserSubscription;
-  onDeleteUser: OnDeleteUserSubscription;
   onCreateRole: OnCreateRoleSubscription;
   onUpdateRole: OnUpdateRoleSubscription;
   onDeleteRole: OnDeleteRoleSubscription;
 };
 
-export type CreateUserInput = {
+export type CreateRoleInput = {
   id?: string | null;
-  email?: string | null;
   name: string;
-  profileIUrlmage?: string | null;
-  userRoleId?: string | null;
 };
 
-export type ModelUserConditionInput = {
-  email?: ModelStringInput | null;
+export type ModelRoleConditionInput = {
   name?: ModelStringInput | null;
-  profileIUrlmage?: ModelStringInput | null;
-  and?: Array<ModelUserConditionInput | null> | null;
-  or?: Array<ModelUserConditionInput | null> | null;
-  not?: ModelUserConditionInput | null;
-  userRoleId?: ModelIDInput | null;
+  and?: Array<ModelRoleConditionInput | null> | null;
+  or?: Array<ModelRoleConditionInput | null> | null;
+  not?: ModelRoleConditionInput | null;
 };
 
 export type ModelStringInput = {
@@ -75,6 +66,31 @@ export type ModelSizeInput = {
   between?: Array<number | null> | null;
 };
 
+export type Role = {
+  __typename: "Role";
+  id: string;
+  name: string;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type UpdateRoleInput = {
+  id: string;
+  name?: string | null;
+};
+
+export type DeleteRoleInput = {
+  id: string;
+};
+
+export type ModelRoleFilterInput = {
+  id?: ModelIDInput | null;
+  name?: ModelStringInput | null;
+  and?: Array<ModelRoleFilterInput | null> | null;
+  or?: Array<ModelRoleFilterInput | null> | null;
+  not?: ModelRoleFilterInput | null;
+};
+
 export type ModelIDInput = {
   ne?: string | null;
   eq?: string | null;
@@ -91,97 +107,17 @@ export type ModelIDInput = {
   size?: ModelSizeInput | null;
 };
 
-export type User = {
-  __typename: "User";
-  id: string;
-  Role?: Role | null;
-  email?: string | null;
-  name: string;
-  profileIUrlmage?: string | null;
-  createdAt: string;
-  updatedAt: string;
-  userRoleId?: string | null;
-};
-
-export type Role = {
-  __typename: "Role";
-  id: string;
-  name: string;
-  createdAt: string;
-  updatedAt: string;
-};
-
-export type UpdateUserInput = {
-  id: string;
-  email?: string | null;
-  name?: string | null;
-  profileIUrlmage?: string | null;
-  userRoleId?: string | null;
-};
-
-export type DeleteUserInput = {
-  id: string;
-};
-
-export type CreateRoleInput = {
-  id?: string | null;
-  name: string;
-};
-
-export type ModelRoleConditionInput = {
-  name?: ModelStringInput | null;
-  and?: Array<ModelRoleConditionInput | null> | null;
-  or?: Array<ModelRoleConditionInput | null> | null;
-  not?: ModelRoleConditionInput | null;
-};
-
-export type UpdateRoleInput = {
-  id: string;
-  name?: string | null;
-};
-
-export type DeleteRoleInput = {
-  id: string;
-};
-
-export type ModelUserFilterInput = {
-  id?: ModelIDInput | null;
-  email?: ModelStringInput | null;
-  name?: ModelStringInput | null;
-  profileIUrlmage?: ModelStringInput | null;
-  and?: Array<ModelUserFilterInput | null> | null;
-  or?: Array<ModelUserFilterInput | null> | null;
-  not?: ModelUserFilterInput | null;
-  userRoleId?: ModelIDInput | null;
-};
-
-export type ModelUserConnection = {
-  __typename: "ModelUserConnection";
-  items: Array<User | null>;
-  nextToken?: string | null;
-};
-
-export type ModelRoleFilterInput = {
-  id?: ModelIDInput | null;
-  name?: ModelStringInput | null;
-  and?: Array<ModelRoleFilterInput | null> | null;
-  or?: Array<ModelRoleFilterInput | null> | null;
-  not?: ModelRoleFilterInput | null;
-};
-
 export type ModelRoleConnection = {
   __typename: "ModelRoleConnection";
   items: Array<Role | null>;
   nextToken?: string | null;
 };
 
-export type ModelSubscriptionUserFilterInput = {
+export type ModelSubscriptionRoleFilterInput = {
   id?: ModelSubscriptionIDInput | null;
-  email?: ModelSubscriptionStringInput | null;
   name?: ModelSubscriptionStringInput | null;
-  profileIUrlmage?: ModelSubscriptionStringInput | null;
-  and?: Array<ModelSubscriptionUserFilterInput | null> | null;
-  or?: Array<ModelSubscriptionUserFilterInput | null> | null;
+  and?: Array<ModelSubscriptionRoleFilterInput | null> | null;
+  or?: Array<ModelSubscriptionRoleFilterInput | null> | null;
 };
 
 export type ModelSubscriptionIDInput = {
@@ -214,67 +150,6 @@ export type ModelSubscriptionStringInput = {
   notIn?: Array<string | null> | null;
 };
 
-export type ModelSubscriptionRoleFilterInput = {
-  id?: ModelSubscriptionIDInput | null;
-  name?: ModelSubscriptionStringInput | null;
-  and?: Array<ModelSubscriptionRoleFilterInput | null> | null;
-  or?: Array<ModelSubscriptionRoleFilterInput | null> | null;
-};
-
-export type CreateUserMutation = {
-  __typename: "User";
-  id: string;
-  Role?: {
-    __typename: "Role";
-    id: string;
-    name: string;
-    createdAt: string;
-    updatedAt: string;
-  } | null;
-  email?: string | null;
-  name: string;
-  profileIUrlmage?: string | null;
-  createdAt: string;
-  updatedAt: string;
-  userRoleId?: string | null;
-};
-
-export type UpdateUserMutation = {
-  __typename: "User";
-  id: string;
-  Role?: {
-    __typename: "Role";
-    id: string;
-    name: string;
-    createdAt: string;
-    updatedAt: string;
-  } | null;
-  email?: string | null;
-  name: string;
-  profileIUrlmage?: string | null;
-  createdAt: string;
-  updatedAt: string;
-  userRoleId?: string | null;
-};
-
-export type DeleteUserMutation = {
-  __typename: "User";
-  id: string;
-  Role?: {
-    __typename: "Role";
-    id: string;
-    name: string;
-    createdAt: string;
-    updatedAt: string;
-  } | null;
-  email?: string | null;
-  name: string;
-  profileIUrlmage?: string | null;
-  createdAt: string;
-  updatedAt: string;
-  userRoleId?: string | null;
-};
-
 export type CreateRoleMutation = {
   __typename: "Role";
   id: string;
@@ -299,39 +174,6 @@ export type DeleteRoleMutation = {
   updatedAt: string;
 };
 
-export type GetUserQuery = {
-  __typename: "User";
-  id: string;
-  Role?: {
-    __typename: "Role";
-    id: string;
-    name: string;
-    createdAt: string;
-    updatedAt: string;
-  } | null;
-  email?: string | null;
-  name: string;
-  profileIUrlmage?: string | null;
-  createdAt: string;
-  updatedAt: string;
-  userRoleId?: string | null;
-};
-
-export type ListUsersQuery = {
-  __typename: "ModelUserConnection";
-  items: Array<{
-    __typename: "User";
-    id: string;
-    email?: string | null;
-    name: string;
-    profileIUrlmage?: string | null;
-    createdAt: string;
-    updatedAt: string;
-    userRoleId?: string | null;
-  } | null>;
-  nextToken?: string | null;
-};
-
 export type GetRoleQuery = {
   __typename: "Role";
   id: string;
@@ -350,60 +192,6 @@ export type ListRolesQuery = {
     updatedAt: string;
   } | null>;
   nextToken?: string | null;
-};
-
-export type OnCreateUserSubscription = {
-  __typename: "User";
-  id: string;
-  Role?: {
-    __typename: "Role";
-    id: string;
-    name: string;
-    createdAt: string;
-    updatedAt: string;
-  } | null;
-  email?: string | null;
-  name: string;
-  profileIUrlmage?: string | null;
-  createdAt: string;
-  updatedAt: string;
-  userRoleId?: string | null;
-};
-
-export type OnUpdateUserSubscription = {
-  __typename: "User";
-  id: string;
-  Role?: {
-    __typename: "Role";
-    id: string;
-    name: string;
-    createdAt: string;
-    updatedAt: string;
-  } | null;
-  email?: string | null;
-  name: string;
-  profileIUrlmage?: string | null;
-  createdAt: string;
-  updatedAt: string;
-  userRoleId?: string | null;
-};
-
-export type OnDeleteUserSubscription = {
-  __typename: "User";
-  id: string;
-  Role?: {
-    __typename: "Role";
-    id: string;
-    name: string;
-    createdAt: string;
-    updatedAt: string;
-  } | null;
-  email?: string | null;
-  name: string;
-  profileIUrlmage?: string | null;
-  createdAt: string;
-  updatedAt: string;
-  userRoleId?: string | null;
 };
 
 export type OnCreateRoleSubscription = {
@@ -434,108 +222,6 @@ export type OnDeleteRoleSubscription = {
   providedIn: "root"
 })
 export class APIService {
-  async CreateUser(
-    input: CreateUserInput,
-    condition?: ModelUserConditionInput
-  ): Promise<CreateUserMutation> {
-    const statement = `mutation CreateUser($input: CreateUserInput!, $condition: ModelUserConditionInput) {
-        createUser(input: $input, condition: $condition) {
-          __typename
-          id
-          Role {
-            __typename
-            id
-            name
-            createdAt
-            updatedAt
-          }
-          email
-          name
-          profileIUrlmage
-          createdAt
-          updatedAt
-          userRoleId
-        }
-      }`;
-    const gqlAPIServiceArguments: any = {
-      input
-    };
-    if (condition) {
-      gqlAPIServiceArguments.condition = condition;
-    }
-    const response = (await API.graphql(
-      graphqlOperation(statement, gqlAPIServiceArguments)
-    )) as any;
-    return <CreateUserMutation>response.data.createUser;
-  }
-  async UpdateUser(
-    input: UpdateUserInput,
-    condition?: ModelUserConditionInput
-  ): Promise<UpdateUserMutation> {
-    const statement = `mutation UpdateUser($input: UpdateUserInput!, $condition: ModelUserConditionInput) {
-        updateUser(input: $input, condition: $condition) {
-          __typename
-          id
-          Role {
-            __typename
-            id
-            name
-            createdAt
-            updatedAt
-          }
-          email
-          name
-          profileIUrlmage
-          createdAt
-          updatedAt
-          userRoleId
-        }
-      }`;
-    const gqlAPIServiceArguments: any = {
-      input
-    };
-    if (condition) {
-      gqlAPIServiceArguments.condition = condition;
-    }
-    const response = (await API.graphql(
-      graphqlOperation(statement, gqlAPIServiceArguments)
-    )) as any;
-    return <UpdateUserMutation>response.data.updateUser;
-  }
-  async DeleteUser(
-    input: DeleteUserInput,
-    condition?: ModelUserConditionInput
-  ): Promise<DeleteUserMutation> {
-    const statement = `mutation DeleteUser($input: DeleteUserInput!, $condition: ModelUserConditionInput) {
-        deleteUser(input: $input, condition: $condition) {
-          __typename
-          id
-          Role {
-            __typename
-            id
-            name
-            createdAt
-            updatedAt
-          }
-          email
-          name
-          profileIUrlmage
-          createdAt
-          updatedAt
-          userRoleId
-        }
-      }`;
-    const gqlAPIServiceArguments: any = {
-      input
-    };
-    if (condition) {
-      gqlAPIServiceArguments.condition = condition;
-    }
-    const response = (await API.graphql(
-      graphqlOperation(statement, gqlAPIServiceArguments)
-    )) as any;
-    return <DeleteUserMutation>response.data.deleteUser;
-  }
   async CreateRole(
     input: CreateRoleInput,
     condition?: ModelRoleConditionInput
@@ -608,70 +294,6 @@ export class APIService {
     )) as any;
     return <DeleteRoleMutation>response.data.deleteRole;
   }
-  async GetUser(id: string): Promise<GetUserQuery> {
-    const statement = `query GetUser($id: ID!) {
-        getUser(id: $id) {
-          __typename
-          id
-          Role {
-            __typename
-            id
-            name
-            createdAt
-            updatedAt
-          }
-          email
-          name
-          profileIUrlmage
-          createdAt
-          updatedAt
-          userRoleId
-        }
-      }`;
-    const gqlAPIServiceArguments: any = {
-      id
-    };
-    const response = (await API.graphql(
-      graphqlOperation(statement, gqlAPIServiceArguments)
-    )) as any;
-    return <GetUserQuery>response.data.getUser;
-  }
-  async ListUsers(
-    filter?: ModelUserFilterInput,
-    limit?: number,
-    nextToken?: string
-  ): Promise<ListUsersQuery> {
-    const statement = `query ListUsers($filter: ModelUserFilterInput, $limit: Int, $nextToken: String) {
-        listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
-          __typename
-          items {
-            __typename
-            id
-            email
-            name
-            profileIUrlmage
-            createdAt
-            updatedAt
-            userRoleId
-          }
-          nextToken
-        }
-      }`;
-    const gqlAPIServiceArguments: any = {};
-    if (filter) {
-      gqlAPIServiceArguments.filter = filter;
-    }
-    if (limit) {
-      gqlAPIServiceArguments.limit = limit;
-    }
-    if (nextToken) {
-      gqlAPIServiceArguments.nextToken = nextToken;
-    }
-    const response = (await API.graphql(
-      graphqlOperation(statement, gqlAPIServiceArguments)
-    )) as any;
-    return <ListUsersQuery>response.data.listUsers;
-  }
   async GetRole(id: string): Promise<GetRoleQuery> {
     const statement = `query GetRole($id: ID!) {
         getRole(id: $id) {
@@ -723,111 +345,6 @@ export class APIService {
     )) as any;
     return <ListRolesQuery>response.data.listRoles;
   }
-  OnCreateUserListener(
-    filter?: ModelSubscriptionUserFilterInput
-  ): Observable<
-    SubscriptionResponse<Pick<__SubscriptionContainer, "onCreateUser">>
-  > {
-    const statement = `subscription OnCreateUser($filter: ModelSubscriptionUserFilterInput) {
-        onCreateUser(filter: $filter) {
-          __typename
-          id
-          Role {
-            __typename
-            id
-            name
-            createdAt
-            updatedAt
-          }
-          email
-          name
-          profileIUrlmage
-          createdAt
-          updatedAt
-          userRoleId
-        }
-      }`;
-    const gqlAPIServiceArguments: any = {};
-    if (filter) {
-      gqlAPIServiceArguments.filter = filter;
-    }
-    return API.graphql(
-      graphqlOperation(statement, gqlAPIServiceArguments)
-    ) as Observable<
-      SubscriptionResponse<Pick<__SubscriptionContainer, "onCreateUser">>
-    >;
-  }
-
-  OnUpdateUserListener(
-    filter?: ModelSubscriptionUserFilterInput
-  ): Observable<
-    SubscriptionResponse<Pick<__SubscriptionContainer, "onUpdateUser">>
-  > {
-    const statement = `subscription OnUpdateUser($filter: ModelSubscriptionUserFilterInput) {
-        onUpdateUser(filter: $filter) {
-          __typename
-          id
-          Role {
-            __typename
-            id
-            name
-            createdAt
-            updatedAt
-          }
-          email
-          name
-          profileIUrlmage
-          createdAt
-          updatedAt
-          userRoleId
-        }
-      }`;
-    const gqlAPIServiceArguments: any = {};
-    if (filter) {
-      gqlAPIServiceArguments.filter = filter;
-    }
-    return API.graphql(
-      graphqlOperation(statement, gqlAPIServiceArguments)
-    ) as Observable<
-      SubscriptionResponse<Pick<__SubscriptionContainer, "onUpdateUser">>
-    >;
-  }
-
-  OnDeleteUserListener(
-    filter?: ModelSubscriptionUserFilterInput
-  ): Observable<
-    SubscriptionResponse<Pick<__SubscriptionContainer, "onDeleteUser">>
-  > {
-    const statement = `subscription OnDeleteUser($filter: ModelSubscriptionUserFilterInput) {
-        onDeleteUser(filter: $filter) {
-          __typename
-          id
-          Role {
-            __typename
-            id
-            name
-            createdAt
-            updatedAt
-          }
-          email
-          name
-          profileIUrlmage
-          createdAt
-          updatedAt
-          userRoleId
-        }
-      }`;
-    const gqlAPIServiceArguments: any = {};
-    if (filter) {
-      gqlAPIServiceArguments.filter = filter;
-    }
-    return API.graphql(
-      graphqlOperation(statement, gqlAPIServiceArguments)
-    ) as Observable<
-      SubscriptionResponse<Pick<__SubscriptionContainer, "onDeleteUser">>
-    >;
-  }
-
   OnCreateRoleListener(
     filter?: ModelSubscriptionRoleFilterInput
   ): Observable<

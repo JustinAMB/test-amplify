@@ -17,6 +17,9 @@
       },
       "api": {
         "Testconfi": {}
+      },
+      "storage": {
+        "s3testconfistorage2665f9d4": {}
       }
     }
   }
